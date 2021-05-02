@@ -21,13 +21,18 @@ class PaymentViewModel: NSObject {
   func getPayment() {
     PaymentAPI.shared.getPaymentMethod { (json, err) in
       DispatchQueue.main.async {
-        err == nil ? self.delegate?.reloadData() : self.delegate?.throwError(error: err?.localizedDescription ?? "")
+        err == nil ? self.reloadDataWithPaymentList(json ?? []) : self.delegate?.throwError(error: err?.localizedDescription ?? "")
       }
     }
   }
   
   func numberOfRows() -> Int {
     return paymentList?.count ?? 0
+  }
+  
+  func reloadDataWithPaymentList(_ applicable: [Applicable]) {
+    self.paymentList = applicable
+    self.delegate?.reloadData()
   }
   
 }

@@ -19,6 +19,9 @@
 		99FB0C88263EB380000027D0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FB0C87263EB380000027D0 /* Constant.swift */; };
 		99FB0C90263EB3D6000027D0 /* PaymentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FB0C8F263EB3D6000027D0 /* PaymentAPI.swift */; };
 		99FB0C99263EC66E000027D0 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FB0C98263EC66E000027D0 /* PaymentViewModel.swift */; };
+		99FB0CA5263EC8A7000027D0 /* CustomTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FB0CA4263EC8A7000027D0 /* CustomTableViewDataSource.swift */; };
+		99FB0CAA263ECA51000027D0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FB0CA9263ECA51000027D0 /* Extension.swift */; };
+		99FB0CB0263ECBEA000027D0 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FB0CAF263ECBEA000027D0 /* PaymentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		99FB0C87263EB380000027D0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		99FB0C8F263EB3D6000027D0 /* PaymentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAPI.swift; sourceTree = "<group>"; };
 		99FB0C98263EC66E000027D0 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		99FB0CA4263EC8A7000027D0 /* CustomTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewDataSource.swift; sourceTree = "<group>"; };
+		99FB0CA9263ECA51000027D0 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		99FB0CAF263ECBEA000027D0 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,8 @@
 		99FB0C4B263EB21A000027D0 /* Payments */ = {
 			isa = PBXGroup;
 			children = (
+				99FB0CAE263ECBD9000027D0 /* Views */,
+				99FB0CA3263EC8A7000027D0 /* DataSource */,
 				99FB0C97263EC656000027D0 /* ViewModel */,
 				99FB0C86263EB371000027D0 /* Common */,
 				99FB0C85263EB31E000027D0 /* Network */,
@@ -160,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				99FB0C87263EB380000027D0 /* Constant.swift */,
+				99FB0CA9263ECA51000027D0 /* Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -170,6 +179,22 @@
 				99FB0C98263EC66E000027D0 /* PaymentViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		99FB0CA3263EC8A7000027D0 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				99FB0CA4263EC8A7000027D0 /* CustomTableViewDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		99FB0CAE263ECBD9000027D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99FB0CAF263ECBEA000027D0 /* PaymentTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,9 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FB0CB0263ECBEA000027D0 /* PaymentTableViewCell.swift in Sources */,
+				99FB0CAA263ECA51000027D0 /* Extension.swift in Sources */,
 				99FB0C51263EB21A000027D0 /* PaymentListViewController.swift in Sources */,
 				99FB0C4D263EB21A000027D0 /* AppDelegate.swift in Sources */,
 				99FB0C88263EB380000027D0 /* Constant.swift in Sources */,
+				99FB0CA5263EC8A7000027D0 /* CustomTableViewDataSource.swift in Sources */,
 				99FB0C81263EB312000027D0 /* PaymentList.swift in Sources */,
 				99FB0C4F263EB21A000027D0 /* SceneDelegate.swift in Sources */,
 				99FB0C99263EC66E000027D0 /* PaymentViewModel.swift in Sources */,

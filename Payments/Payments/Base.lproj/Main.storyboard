@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,14 +12,104 @@
         <!--Payment Method-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PaymentListViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PaymentListViewController" customModule="Payments" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wxr-n3-YSV">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" name="AppBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentTableViewCell" rowHeight="95" id="CM7-bT-fOI" customClass="PaymentTableViewCell" customModule="Payments" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CM7-bT-fOI" id="f0R-Rv-NWe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKC-5E-QO6">
+                                                    <rect key="frame" x="20" y="10" width="374" height="75"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UXp-Yk-tI9">
+                                                            <rect key="frame" x="10" y="7.5" width="60" height="60"/>
+                                                            <color key="tintColor" systemColor="systemGrayColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="UXp-Yk-tI9" secondAttribute="height" multiplier="1:1" id="5eE-wW-qPY"/>
+                                                                <constraint firstAttribute="height" constant="60" id="XhP-94-H2J"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="viewCornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U80-4u-3OJ">
+                                                            <rect key="frame" x="80" y="27.5" width="294" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="AppCellColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="U80-4u-3OJ" firstAttribute="leading" secondItem="UXp-Yk-tI9" secondAttribute="trailing" constant="10" id="4wm-1o-257"/>
+                                                        <constraint firstAttribute="height" constant="75" id="KLA-ek-yCw"/>
+                                                        <constraint firstAttribute="trailing" secondItem="U80-4u-3OJ" secondAttribute="trailing" id="LvL-cx-Jjt"/>
+                                                        <constraint firstItem="UXp-Yk-tI9" firstAttribute="leading" secondItem="EKC-5E-QO6" secondAttribute="leading" constant="10" id="e60-QZ-fCr"/>
+                                                        <constraint firstItem="UXp-Yk-tI9" firstAttribute="centerY" secondItem="EKC-5E-QO6" secondAttribute="centerY" id="mPk-TL-W0g"/>
+                                                        <constraint firstItem="U80-4u-3OJ" firstAttribute="centerY" secondItem="UXp-Yk-tI9" secondAttribute="centerY" id="tOb-9R-oZX"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="viewCornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="viewShadowColor">
+                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                            <size key="value" width="0.0" height="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                            <real key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                            <real key="value" value="0.80000000000000004"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="viewmaskToBounds" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" name="AppBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="EKC-5E-QO6" firstAttribute="top" secondItem="f0R-Rv-NWe" secondAttribute="top" constant="10" id="9M8-qI-Asd"/>
+                                                <constraint firstItem="EKC-5E-QO6" firstAttribute="leading" secondItem="f0R-Rv-NWe" secondAttribute="leading" constant="20" id="EpA-v0-MnP"/>
+                                                <constraint firstAttribute="trailing" secondItem="EKC-5E-QO6" secondAttribute="trailing" constant="20" id="MEn-7b-z9n"/>
+                                                <constraint firstAttribute="bottom" secondItem="EKC-5E-QO6" secondAttribute="bottom" constant="10" id="coK-J4-6o8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="containerView" destination="EKC-5E-QO6" id="GPL-PG-U5W"/>
+                                            <outlet property="imgViewLogo" destination="UXp-Yk-tI9" id="CMs-82-OBI"/>
+                                            <outlet property="lblPaymentName" destination="U80-4u-3OJ" id="VlH-rf-ru2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="AppBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wxr-n3-YSV" secondAttribute="trailing" id="6eG-bY-2rm"/>
+                            <constraint firstItem="wxr-n3-YSV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E09-uF-HA5"/>
+                            <constraint firstItem="wxr-n3-YSV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YNB-Cp-04j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wxr-n3-YSV" secondAttribute="bottom" id="mdv-np-XkD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Payment Method" id="wx2-DQ-hUY"/>
+                    <connections>
+                        <outlet property="paymentTableView" destination="wxr-n3-YSV" id="3DE-AB-qvQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,9 +120,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hZJ-JB-N9U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hyp-WU-NUD">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hyp-WU-NUD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="AppBackgroundColor"/>
+                        <color key="barTintColor" name="AppBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -44,8 +137,14 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
+        <namedColor name="AppBackgroundColor">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppCellColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

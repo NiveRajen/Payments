@@ -12,4 +12,6 @@ class Constants: NSObject {
   static let listPath = "shared-test/lists/listresult.json"
   static let getMethod = "GET"
   static let networks = "networks"
+  static let paymentTableViewCell = "PaymentTableViewCell"
+  static let defaultImage = "DefaultImage"
 }
