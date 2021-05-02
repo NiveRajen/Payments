@@ -19,6 +19,7 @@ class PaymentViewModel: NSObject {
   var paymentList: [Applicable]?
   
   func getPayment() {
+    
     PaymentAPI.shared.getPaymentMethod { (json, err) in
       DispatchQueue.main.async {
         err == nil ? self.reloadDataWithPaymentList(json ?? []) : self.delegate?.throwError(error: err?.localizedDescription ?? "")
@@ -35,4 +36,8 @@ class PaymentViewModel: NSObject {
     self.delegate?.reloadData()
   }
   
+  
+  func showNoRecords() -> Bool {
+    return paymentList == nil ? true : self.numberOfRows() == 0
+  }
 }

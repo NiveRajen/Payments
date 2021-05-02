@@ -2,7 +2,7 @@
 //  PaymentsUITests.swift
 //  PaymentsUITests
 //
-//  Created by Saravana Ganesh L on 02/05/21.
+//  Created by Nivedha Rajendran on 02/05/21.
 //
 
 import XCTest

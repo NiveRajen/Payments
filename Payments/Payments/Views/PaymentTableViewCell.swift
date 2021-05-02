@@ -8,20 +8,27 @@
 import UIKit
 
 class PaymentTableViewCell: UITableViewCell {
+  
   @IBOutlet weak var lblPaymentName: UILabel!
   @IBOutlet weak var imgViewLogo: UIImageView!
   @IBOutlet weak var containerView: UIView!
   
+  var paymentCellViewModel: PaymentCellViewModel = PaymentCellViewModel() {
+    
+    didSet {
+      paymentCellViewModel.payment = payment
+      paymentCellViewModel.delegate = self
+      paymentCellViewModel.downloadImage()
+    }
+  }
+  
   var payment: Applicable = Applicable() {
+    
     didSet {
       lblPaymentName?.text = payment.label
       
-      DispatchQueue.global(qos: .background).async { [weak self] in
-        
-        guard let self = self else { return }
-        if let imageUrlString = self.payment.links?.logo {
-          self.imgViewLogo.loadImageWithCache(for: imageUrlString)
-        }
+      DispatchQueue.main.async {
+        self.imgViewLogo.image = UIImage(named: Constants.defaultImage)
       }
     }
   }
@@ -52,5 +59,14 @@ class PaymentTableViewCell: UITableViewCell {
     
     // Configure the view for the selected state
   }
+}
+
+extension PaymentTableViewCell: PaymentCellDelegate {
   
+  func returnDownloadImage(_ image: UIImage?) {
+    
+    DispatchQueue.main.async {
+      self.imgViewLogo.image = image ?? UIImage(named: Constants.defaultImage)
+    }
+  }
 }

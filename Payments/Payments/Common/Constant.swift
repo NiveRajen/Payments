@@ -14,4 +14,9 @@ class Constants: NSObject {
   static let networks = "networks"
   static let paymentTableViewCell = "PaymentTableViewCell"
   static let defaultImage = "DefaultImage"
+  static let NoInternet = "No Internet"
+  static let serverError = "Server Error"
+  static let dataTypeError = "Datatype Error"
+  static let error = "Error"
+  static let ok = "Ok"
 }

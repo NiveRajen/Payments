@@ -65,61 +65,34 @@ extension UIView {
   }
 }
 
-//Initilizing cache for images
-let imageCache = NSCache<AnyObject, AnyObject>()
 
-extension UIImageView {
-  
-  /// loading image from url and adding image to NSCache and loading it to image view in the cell
-  /// - Parameter urlString: urlString - "http://1239f9euf.jpg"
-  func loadImageWithCache(for urlString: String) {
+//MARK: UIVIEW CONTROLLER
+extension UIViewController {
+  func showAlert(title: String?, msg: String?)  {
     
-    DispatchQueue.main.async { [weak self] in
-      guard let self = self else { return }
-      self.image = UIImage(named: Constants.defaultImage)
-    }
+    let okAction = UIAlertAction(title: Constants.ok, style: .default, handler: nil)
     
-    guard let url = URL(string: urlString) else { return }
+    guard let alertMessage = msg, let alertTitle = title?.capitalized else { return }
+    let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
     
-    if let cachedImage = imageCache.object(forKey: urlString as AnyObject) {
-      DispatchQueue.main.async { [weak self] in
-        guard let self = self else { return }
-        self.image = cachedImage as? UIImage
-      }
-      return
-    }
-    
-    URLSession.shared.dataTask(with: url) { (data, jsonResponse, error) in
-      if error != nil {
-        print(error?.localizedDescription as Any)
-        return
-      }
+    DispatchQueue.main.async {
       
-      guard let data = data else { return }
-      
-      if let image = UIImage(data: data) {
-        
-        DispatchQueue.main.async { [weak self] in
-          guard let self = self else { return }
-          imageCache.setObject(image, forKey: urlString as AnyObject)
-          self.image = image
-        }
-      }
-    }.resume()
+      alert.addAction(okAction)
+      self.present(alert, animated: true, completion: nil)
+    }
   }
-  
-  
-//  /// Imageview rounded
-//  /// - Parameter withBorder: withBorder - Bool
-//  func rounded(withBorder: Bool) {
-//
-//    self.clipsToBounds = true
-//    self.layer.cornerRadius = Constants.height/2
-//    if (withBorder) {
-//      self.layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
-//      self.layer.borderWidth = 1.0
-//    } else {
-//      self.layer.borderWidth = 0.0
-//    }
-//  }
 }
+
+//MARK: DATA
+extension Data {
+  func json(deletingKeyPaths keyPaths: String...) throws -> Data {
+    let decoded = try JSONSerialization.jsonObject(with: self, options: .mutableContainers) as AnyObject
+    
+    for keyPath in keyPaths {
+      decoded.setValue(nil, forKeyPath: keyPath)
+    }
+    
+    return try JSONSerialization.data(withJSONObject: decoded)
+  }
+}
+

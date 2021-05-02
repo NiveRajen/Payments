@@ -13,7 +13,7 @@ struct PaymentList {
   var logo: String?
 }
 
-struct Network: Codable {
+struct NetworkObject: Codable {
   var applicable: [Applicable]?
   
   enum CodingKeys: String, CodingKey {

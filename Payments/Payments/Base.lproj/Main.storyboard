@@ -12,7 +12,7 @@
         <!--Payment Method-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PaymentListViewController" customModule="Payments" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentListViewController" id="BYZ-38-t0r" customClass="PaymentListViewController" customModule="Payments" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,18 +96,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Payments Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frz-yd-Fm9">
+                                <rect key="frame" x="115" y="463" width="184" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="AppBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wxr-n3-YSV" secondAttribute="trailing" id="6eG-bY-2rm"/>
                             <constraint firstItem="wxr-n3-YSV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E09-uF-HA5"/>
+                            <constraint firstItem="frz-yd-Fm9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OuI-xk-s4w"/>
                             <constraint firstItem="wxr-n3-YSV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YNB-Cp-04j"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wxr-n3-YSV" secondAttribute="bottom" id="mdv-np-XkD"/>
+                            <constraint firstItem="frz-yd-Fm9" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="pgM-GD-lH2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Payment Method" id="wx2-DQ-hUY"/>
                     <connections>
+                        <outlet property="lblNoRecord" destination="frz-yd-Fm9" id="PVd-P3-MIn"/>
                         <outlet property="paymentTableView" destination="wxr-n3-YSV" id="3DE-AB-qvQ"/>
                     </connections>
                 </viewController>
