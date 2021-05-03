@@ -13,6 +13,9 @@ class PaymentAPI {
   static let shared = PaymentAPI()
   let imageCache = NSCache<AnyObject, AnyObject>()
   
+  /// get payment list from url
+  ///
+  /// - Parameter completionHandler: completion handler contaning applicable array and error
   func getPaymentMethod(completionHandler: @escaping(_ result: [Applicable]?, _ error: Error?) -> Void) {
     
     if Reachability.isConnectedToNetwork() {
@@ -52,11 +55,13 @@ class PaymentAPI {
   
   
   /// loading image from url and adding image to NSCache and loading it to image view in the cell
+  ///
   /// - Parameter urlString: urlString - "http://1239f9euf.jpg"
   func loadImageWithCache(for urlString: String, completionHandler: @escaping(_ image: UIImage) -> Void) {
     
     guard let url = URL(string: urlString) else { return }
     
+    //Getting a image from image cache based on urlString
     if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
       completionHandler(cachedImage)
     }
@@ -73,6 +78,7 @@ class PaymentAPI {
       
       if let image = UIImage(data: data) {
         
+        //Adding image to imageCache
         self.imageCache.setObject(image, forKey: urlString as AnyObject)
         completionHandler(image)
       }
@@ -80,6 +86,7 @@ class PaymentAPI {
   }
 }
 
+//MARK: SERIALIZE PAYMENT DATA
 class SerializePaymentData {
   
   var data: Data
@@ -89,6 +96,8 @@ class SerializePaymentData {
     self.data = data
   }
   
+  ///Json serialization
+  /// - Returns: A tuples contains Applicable array and Error
   func jsonSerialize() -> ([Applicable]?, Error?) {
     
     do {

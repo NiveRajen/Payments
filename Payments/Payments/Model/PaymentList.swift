@@ -7,12 +7,7 @@
 
 import Foundation
 
-
-struct PaymentList {
-  var label: String?
-  var logo: String?
-}
-
+//list of applicable payment networks
 struct NetworkObject: Codable {
   var applicable: [Applicable]?
   
@@ -20,6 +15,7 @@ struct NetworkObject: Codable {
     case applicable
   }
 }
+
 
 struct Applicable: Codable {
   var method: String?
@@ -29,7 +25,11 @@ struct Applicable: Codable {
   var code: String?
   var registration: String?
   var selected: Bool?
+  
+  /// Collection of links related to this payment network in scope of the `LIST` session
   var links: Operation?
+  
+  /// Display label of the payment network.
   var label: String?
   var inputElements: [InputElements]?
   var operationType: String?
@@ -50,6 +50,7 @@ struct Applicable: Codable {
   }
 }
 
+/// Result of `CHARGE` operation execution with interaction information
 struct Operation: Codable {
   var operation: String?
   var validation: String?
@@ -66,6 +67,7 @@ struct Operation: Codable {
   }
 }
 
+//Input Elements
 struct InputElements: Codable {
   var name: String?
   var type: String?

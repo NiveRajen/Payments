@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //Remove the border line in the navigation bar
     UINavigationBar.appearance().shadowImage = UIImage()
+    
     return true
   }
 

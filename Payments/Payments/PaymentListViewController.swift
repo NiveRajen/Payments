@@ -12,6 +12,7 @@ class PaymentListViewController: UIViewController {
   @IBOutlet weak var lblNoRecord: UILabel!
   @IBOutlet weak var paymentTableView: UITableView!
   
+  //Initializing payment view model
   var paymentViewModel = PaymentViewModel() {
     
     didSet {
@@ -32,6 +33,7 @@ class PaymentListViewController: UIViewController {
     paymentViewModel = PaymentViewModel()
   }
   
+  //Reload function to load the data source to table view
   func renderTableViewdataSource(_ applicable: [Applicable]) {
     dataSource = .displayData(for: applicable, with: Constants.paymentTableViewCell)
     self.paymentTableView.dataSource = dataSource
@@ -41,7 +43,7 @@ class PaymentListViewController: UIViewController {
   
 }
 
-
+//MARK: - PAYMENT DELEGATE
 extension PaymentListViewController: PaymentDelegate {
   
   func throwError(error: String) {

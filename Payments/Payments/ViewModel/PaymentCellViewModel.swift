@@ -8,15 +8,17 @@
 import Foundation
 import UIKit
 
+//MARK: PaymentCellDelegate
 protocol PaymentCellDelegate {
   
   func returnDownloadImage(_ image: UIImage?)
 }
 
 class PaymentCellViewModel: NSObject {
-  var delegate: PaymentCellDelegate?
+  var delegate: PaymentCellDelegate? //Initalizing Payment Delegate
   var payment: Applicable?
   
+  ///DownloadImage to load logo from API and pass using delegate
   func downloadImage() {
     
     DispatchQueue.global(qos: .background).async { [weak self] in

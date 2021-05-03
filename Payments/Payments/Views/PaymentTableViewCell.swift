@@ -13,6 +13,7 @@ class PaymentTableViewCell: UITableViewCell {
   @IBOutlet weak var imgViewLogo: UIImageView!
   @IBOutlet weak var containerView: UIView!
   
+  //Inilizing Paymentcell view model
   var paymentCellViewModel: PaymentCellViewModel = PaymentCellViewModel() {
     
     didSet {
@@ -22,6 +23,7 @@ class PaymentTableViewCell: UITableViewCell {
     }
   }
   
+  //Initializing Applicable object and populating data
   var payment: Applicable = Applicable() {
     
     didSet {
@@ -33,6 +35,7 @@ class PaymentTableViewCell: UITableViewCell {
     }
   }
   
+  //Trait collection function to get the dark/light theme based on user setting
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     
     super.traitCollectionDidChange(previousTraitCollection)
@@ -61,8 +64,12 @@ class PaymentTableViewCell: UITableViewCell {
   }
 }
 
+//MARK: - PAYMENT CELL DELEGATE
 extension PaymentTableViewCell: PaymentCellDelegate {
   
+  ///Downloaded image from API
+  ///
+  /// - Parameter image: download image to load to the cell
   func returnDownloadImage(_ image: UIImage?) {
     
     DispatchQueue.main.async {

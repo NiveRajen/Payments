@@ -10,6 +10,7 @@ import UIKit
 //MARK:- UIView
 extension UIView {
   
+  /// Set corner radius for uiview using storyboard in inspectable tab
   @IBInspectable var viewCornerRadius: CGFloat {
     get {
       return layer.cornerRadius
@@ -21,7 +22,7 @@ extension UIView {
   }
   
   /*  Drop shadow
-   We can use this variable to add shaodow to respective view in storyboard
+   We can use this variable to add shadow to respective view in storyboard
    */
   @IBInspectable var viewShadowColor: UIColor? {
     get {
@@ -68,6 +69,10 @@ extension UIView {
 
 //MARK: UIVIEW CONTROLLER
 extension UIViewController {
+  ///Present alert for UI View Controller
+  ///
+  /// - Parameter title: title as string
+  /// - Parameter alert: alert message as string
   func showAlert(title: String?, msg: String?)  {
     
     let okAction = UIAlertAction(title: Constants.ok, style: .default, handler: nil)
@@ -85,6 +90,10 @@ extension UIViewController {
 
 //MARK: DATA
 extension Data {
+  ///create data from json
+  ///
+  /// - Parameters: keypath as string
+  /// - Returns: Data
   func json(deletingKeyPaths keyPaths: String...) throws -> Data {
     let decoded = try JSONSerialization.jsonObject(with: self, options: .mutableContainers) as AnyObject
     

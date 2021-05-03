@@ -8,13 +8,16 @@
 
 import UIKit
 
+
+/// Reusable custom table view data source
 class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSource {
   
-  typealias CellConfigurator = (Model, UITableViewCell) -> Void
+  typealias CellConfigurator = (Model, UITableViewCell) -> Void //Cell configurator using Model and UITableViewCell Class
   var models: [Model]
   private let resuseIdentifier: String
   private let cellConfigurator: CellConfigurator
   
+  //Initialization for data Source with model, reuseidentifier and cell configurator
   init(with models: [Model], _ reuseIdentifier: String, and cellConfigurator: @escaping CellConfigurator) {
     
     self.models = models
@@ -22,6 +25,7 @@ class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSource {
     self.cellConfigurator = cellConfigurator
   }
   
+  //Data Source
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return models.count
   }
@@ -36,7 +40,14 @@ class CustomTableViewDataSource<Model>: NSObject, UITableViewDataSource {
   }
 }
 
+//MARK: - MODEL CLASS VERIFCATION
 extension CustomTableViewDataSource where Model == Applicable {
+  
+  ///Payment cell configuration
+  ///
+  /// - Parameter itemList: applicable array
+  /// - Parameter cellIdentifier: cell identifier
+  /// - Returns: Customtableview datasource
   
   static func displayData(for itemList: [Applicable], with cellIdentifier: String) -> CustomTableViewDataSource {
     
